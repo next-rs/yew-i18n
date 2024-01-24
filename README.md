@@ -7,6 +7,7 @@
 
 ![Demo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/dq4jcxfg0whyeewwwbfb.gif)
 
+
 ## 📜 Introduction
 
 Yew I18n is a Yew component that provides internationalization (i18n) support for your web applications. It allows you to manage translations and switch between different languages seamlessly, enhancing the user experience for a global audience.
@@ -114,6 +115,10 @@ Incorporating Yew I18n into your application is easy. Follow these steps:
 | --- | --- | --- | --- | --- |
 | `supported_languages` | `Vec<&'static str>` | List of supported languages in your application. | `vec!["en", "fr", "de"]` | `vec!["en"]` |
 | `translations` | `HashMap<String, serde_json::Value>` | Translations for different languages. | Refer to the usage examples for translations | An empty HashMap |
+
+## 📙 Examples
+
+If you're curious about how to use it with tailwind css, you can check out [the examples folder](examples/tailwind) for more information.
 
 ## 🤝 Contribution
 
