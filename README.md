@@ -43,61 +43,69 @@ Incorporating Yew I18n into your application is easy. Follow these steps:
 1. Import the necessary modules and components:
 
    ```rust
-   use yew_i18n::{YewI18n, I18nProvider};
+   use yew_i18n::{I18nProvider, use_translation};
    ```
 
 1. Set up the i18n configuration and provider:
 
    ```rust
-   let supported_languages = vec!["en", "fr"];
-   
-   let mut translations = HashMap::new();
+   use crate::components::my_component::MyComponent;
+   use yew_i18n::I18nProvider;
+   use std::collections::HashMap;
+   use yew::prelude::*;
 
-   translations.insert(
-   	   // en to en
-       "en".to_string(),
-       serde_json::json!({
-           "24 Apr, 2023": "24 Apr, 2023",
-           "02 May, 2023": "02 May, 2023",
-           "11 May, 2023": "11 May, 2023",
-           "Trending Posts": "Trending Posts",
-           "Rust: The Next Big Thing in Data Science": "Rust: The Next Big Thing in Data Science",
-           "Data Science": "Data Science",
-       }),
-   );
+   #[function_component(App)]
+   pub fn app() -> Html {
+       let supported_languages = vec!["en", "fr"];
+       let mut translations = HashMap::new();
 
-   translations.insert(
-   	   // en to fr
-       "fr".to_string(),
-       serde_json::json!({
-           "24 Apr, 2023": "24 Avr, 2023",
-           "02 May, 2023": "02 Mai, 2023",
-           "11 May, 2023": "11 Mai, 2023",
-           "Trending Posts": "Articles Tendances",
-           "Rust: The Next Big Thing in Data Science": "Rust : La Prochaine Grande Avancée en Science des Données",
-           "Data Science": "Science des Données",
-       }),
-   );
+       translations.insert(
+       	   // en to en
+           "en".to_string(),
+           serde_json::json!({
+               "24 Apr, 2023": "24 Apr, 2023",
+               "02 May, 2023": "02 May, 2023",
+               "11 May, 2023": "11 May, 2023",
+               "Trending Posts": "Trending Posts",
+               "Rust: The Next Big Thing in Data Science": "Rust: The Next Big Thing in Data Science",
+               "Data Science": "Data Science",
+           }),
+       );
 
-   html! {
-    	<I18nProvider supported_languages={supported_languages} translations={translations} >
-    	    <MyComponent />
-    	</I18nProvider>
+       translations.insert(
+       	   // en to fr
+           "fr".to_string(),
+           serde_json::json!({
+               "24 Apr, 2023": "24 Avr, 2023",
+               "02 May, 2023": "02 Mai, 2023",
+               "11 May, 2023": "11 Mai, 2023",
+               "Trending Posts": "Articles Tendances",
+               "Rust: The Next Big Thing in Data Science": "Rust : La Prochaine Grande Avancée en Science des Données",
+               "Data Science": "Science des Données",
+           }),
+       );
+
+       html! {
+        	<I18nProvider supported_languages={supported_languages} translations={translations} >
+        	    <MyComponent />
+        	</I18nProvider>
+       }
    }
    ```
 
-1. Use the `use_context` hook to access the i18n context in your components:
+1. Use the `use_translation` hook to access the i18n context in your components:
 
    ```rust
+   // ./src/components/my_component.rs
    use yew::prelude::*;
 
    #[function_component(MyComponent)]
    pub fn my_component() -> Html {
-       let i18n = use_context::<YewI18n>().expect("No I18n context provided");
+       let i18n = use_translation();
 
-    	let _ = i18n.set_translation_language(&"fr");
+       i18n.set_translation_language(&"fr");
 
-       // Your component logic here, states, etc.
+       // Your component, states, etc.
 
        html! {
        	   <div>
@@ -109,7 +117,7 @@ Incorporating Yew I18n into your application is easy. Follow these steps:
 
 1. Customize the language and translations based on user preferences.
 
-## 🔧 Props and API
+## 🔧 Props
 
 | Name | Type | Description | Example | Default Value |
 | --- | --- | --- | --- | --- |

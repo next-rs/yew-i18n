@@ -1,6 +1,6 @@
 use web_sys::HtmlInputElement;
 use yew::prelude::*;
-use yew_i18n::YewI18n;
+use yew_i18n::use_translation;
 
 const TRENDING_CONTAINER: &str = "flex items-center justify-center min-h-screen";
 const SECTION_CONTAINER: &str = "trending-container max-w-screen-lg mx-auto p-4";
@@ -23,7 +23,7 @@ const SPACER_CLASS: &str = "spacer";
 
 #[function_component(Trending)]
 pub fn trending_component() -> Html {
-    let mut i18n = use_context::<YewI18n>().expect("No I18n context provided");
+    let mut i18n = use_translation();
 
     let selected_language_ref = use_node_ref();
     let selected_language_handle = use_state(|| "en".to_string());

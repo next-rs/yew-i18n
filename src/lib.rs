@@ -170,3 +170,8 @@ pub fn i18n_provider(props: &YewI18nProviderConfig) -> Html {
         <ContextProvider<YewI18n> context={(*ctx).clone()}>{ props.children.clone() }</ContextProvider<YewI18n>>
     }
 }
+
+#[hook]
+pub fn use_translation() -> YewI18n {
+    use_context::<YewI18n>().expect("No I18n context provided")
+}
