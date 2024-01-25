@@ -43,12 +43,6 @@ Integrating Yew I18n into your Yew project is a simple process. Follow these ste
 
 Incorporating Yew I18n into your application is easy. Follow these steps:
 
-1. Import the necessary modules and components:
-
-   ```rust
-   use yew_i18n::{I18nProvider, use_translation};
-   ```
-
 1. Set up the i18n configuration and provider:
 
    ```rust
@@ -101,6 +95,7 @@ Incorporating Yew I18n into your application is easy. Follow these steps:
    ```rust
    // ./src/components/my_component.rs
    use yew::prelude::*;
+   use yew_i18n::use_translation;
 
    #[function_component(MyComponent)]
    pub fn my_component() -> Html {
