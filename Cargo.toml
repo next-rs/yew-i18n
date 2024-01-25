@@ -1,6 +1,6 @@
 [package]
 name = "yew-i18n"
-version = "0.1.0"
+version = "0.1.1"
 description = "🌐 Internationalization (i18n) component for the Yew framework."
 license = "MIT"
 repository = "https://github.com/wiseaidev/yew-i18n"
