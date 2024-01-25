@@ -5,8 +5,11 @@
 ![Crates.io License](https://img.shields.io/crates/l/yew-i18n)
 ![Rust](https://img.shields.io/badge/rust-stable-orange)
 
-![Demo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/dq4jcxfg0whyeewwwbfb.gif)
+---
 
+![Demo](https://github.com/wiseaidev/yew-i18n/assets/62179149/473423ad-d3e2-4080-810b-637c119e6d37)
+
+---
 
 ## 📜 Introduction
 
