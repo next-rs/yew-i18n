@@ -16,12 +16,13 @@
 //! cargo add yew-i18n
 //! ```
 //!
-//! To integrate the library into your Yew application, you can use the `YewI18nProvider` component.
+//! To integrate the library into your Yew application, you can use the `I18nProvider` component.
 //! Here's a simple example of how to use it:
 //!
 //! ```rust,no_run
 //! use yew::prelude::*;
-//! use yew_i18n::{YewI18nProvider, YewI18nProviderConfig, use_translation};
+//! use std::collections::HashMap;
+//! use yew_i18n::{I18nProvider, YewI18nProviderConfig, use_translation};
 //!
 //! // Your Yew component structure here...
 //!
@@ -32,12 +33,13 @@
 //!     let translation = use_translation();
 //!
 //!     html! {
-//!         <YewI18nProvider
+//!         <I18nProvider
 //!             supported_languages={vec!["en", "fr"]}
 //!             translations={HashMap::new()}
 //!         >
+//!             <div />
 //!             // Your components that need translation here...
-//!         </YewI18nProvider>
+//!         </I18nProvider>
 //!     }
 //! }
 //! ```
@@ -54,7 +56,8 @@
 //! for detailed configuration options.
 //!
 //! ```rust,no_run
-//! use yew_i18n::{YewI18nProviderConfig, YewI18n};
+//! use yew::prelude::*;
+//! use yew_i18n::{YewI18nProviderConfig, YewI18nConfig, YewI18n, I18nProvider};
 //! use std::collections::HashMap;
 //!
 //! let i18n_provider_config = YewI18nProviderConfig {
@@ -64,7 +67,7 @@
 //! };
 //!
 //! let i18n_provider_component = html! {
-//!     <YewI18nProvider ..i18n_provider_config />
+//!     <I18nProvider ..i18n_provider_config />
 //! };
 //!
 //! let supported_languages = vec!["en", "fr"];
