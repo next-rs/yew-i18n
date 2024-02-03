@@ -4,10 +4,11 @@
 [![Crates.io Downloads](https://img.shields.io/crates/d/yew-i18n)](https://crates.io/crates/yew-i18n)
 ![Crates.io License](https://img.shields.io/crates/l/yew-i18n)
 ![Rust](https://img.shields.io/badge/rust-stable-orange)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e8246c00-9789-4483-bcd4-b500eefa6f6a/deploy-status)](https://yew-i18n.netlify.app)
 
 ---
 
-![Demo](https://github.com/wiseaidev/yew-i18n/assets/62179149/473423ad-d3e2-4080-810b-637c119e6d37)
+[![Demo](https://github.com/wiseaidev/yew-i18n/assets/62179149/473423ad-d3e2-4080-810b-637c119e6d37)](https://yew-i18n.netlify.app)
 
 ---
 

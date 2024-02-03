@@ -1,3 +1,113 @@
+#![doc(
+    html_logo_url = "https://github.com/next-rs/yew-i18n/assets/62179149/a46bdd6b-2d70-4fa6-ae95-02f6303ec7a3",
+    html_favicon_url = "https://github.com/next-rs/yew-i18n/assets/62179149/eaaebb8f-95bb-45ab-87e8-f278b583a0c7"
+)]
+
+//! # Yew I18n - Documentation
+//!
+//! Welcome to the official Yew I18n documentation. This library
+//! provides internationalization support for your Yew applications.
+//!
+//! ## Usage
+//!
+//! To use the Yew I18n library, add the following dependency to your `Cargo.toml` file:
+//!
+//! ```sh
+//! cargo add yew-i18n
+//! ```
+//!
+//! To integrate the library into your Yew application, you can use the `YewI18nProvider` component.
+//! Here's a simple example of how to use it:
+//!
+//! ```rust,no_run
+//! use yew::prelude::*;
+//! use yew_i18n::{YewI18nProvider, YewI18nProviderConfig, use_translation};
+//!
+//! // Your Yew component structure here...
+//!
+//! #[function_component]
+//! pub fn MyI18nComponent() -> Html {
+//!     // Your component logic here...
+//!
+//!     let translation = use_translation();
+//!
+//!     html! {
+//!         <YewI18nProvider
+//!             supported_languages={vec!["en", "fr"]}
+//!             translations={HashMap::new()}
+//!         >
+//!             // Your components that need translation here...
+//!         </YewI18nProvider>
+//!     }
+//! }
+//! ```
+//!
+//! For more detailed information, check the [examples] provided in the library.
+//!
+//! [examples]: https://github.com/next-rs/yew-i18n/tree/main/examples
+//!
+//! ## Configuration
+//!
+//! Yew I18n allows you to configure the supported languages and translations through the
+//! `YewI18nProviderConfig` structure. You can also use the `YewI18n` struct to handle
+//! translation-related operations programmatically. Refer to the respective documentation
+//! for detailed configuration options.
+//!
+//! ```rust,no_run
+//! use yew_i18n::{YewI18nProviderConfig, YewI18n};
+//! use std::collections::HashMap;
+//!
+//! let i18n_provider_config = YewI18nProviderConfig {
+//!     supported_languages: vec!["en", "fr"],
+//!     translations: HashMap::new(),
+//!     children: html! { /* Your child components here... */ },
+//! };
+//!
+//! let i18n_provider_component = html! {
+//!     <YewI18nProvider ..i18n_provider_config />
+//! };
+//!
+//! let supported_languages = vec!["en", "fr"];
+//! let translations = HashMap::new();
+//!
+//! let i18n = YewI18n::new(YewI18nConfig { supported_languages, translations: translations.clone()}, translations);
+//! assert!(i18n.is_ok());
+//! ```
+//!
+//! ## Translation
+//!
+//! Yew I18n provides a hook function `use_translation` to easily access the translation context
+//! within your components. You can use this hook to retrieve translations for keys in your
+//! components.
+//!
+//! ```rust,no_run
+//! use yew::prelude::*;
+//! use yew_i18n::use_translation;
+//!
+//! #[function_component]
+//! pub fn MyTranslatableComponent() -> Html {
+//!     // Your component logic here...
+//!
+//!     let i18n = use_translation();
+//!     let greeting = i18n.t("greeting");
+//!
+//!     html! {
+//!         <div>{ greeting }</div>
+//!     }
+//! }
+//! ```
+//!
+//! ## Contribution
+//!
+//! If you encounter any issues or have suggestions for improvements, feel free to contribute
+//! to the [GitHub repository](https://github.com/next-rs/yew-i18n). We appreciate your feedback
+//! and involvement in making Yew I18n better!
+//!
+//! ## Acknowledgments
+//!
+//! Special thanks to the Yew community and contributors for such an amazing framework.
+//!
+
 use serde_json::Value;
 use std::collections::HashMap;
 use yew::prelude::*;
