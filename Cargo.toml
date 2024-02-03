@@ -15,8 +15,8 @@ categories = ["web-programming", "internationalization", "accessibility"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-serde_json = "1.0.111"
 yew = "0.21.0"
+serde_json = "1.0.113"
 
 [profile.release]
 codegen-units = 1
